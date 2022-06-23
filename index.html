@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <main>
+        <div>
+    <a><img src="1.jpg" class="img"></a>
+    <br>
+    <label><input type="radio"  name="radio" id="radio1" onclick=invert()>Инвертировать</label><label><input type="radio"  name="radio" id="radio1" onclick=opacity50()>Непрозрачность 50% </label>  <label> <input type="radio"  name="radio" id="radio1" onclick=rotate180deg()>Поворот на 180 градусов</label>
+   <label> <input type="radio"  name="radio" id="radio1" onclick=mirror()>Отразить горизонтально</label>
+        </div>
+        <div>
+            <a><img src="2.png" class="img2"></a>
+            <form>
+            <select class="select1">
+                <option disabled selected>Разрешение</option>
+                <option value="100">100x100</option>
+                <option value="200">200x200 </option>
+                <option value="300">300x300</option>
+            </select>
+            </form>
+        </div>
+        
+
+        <div>
+            <a><img src="L1UuhNj8T18.jpg"  id="img3"></a>
+        </div>
+</main>
+    <script>
+
+        let img = document.querySelector('.img')
+      let img2 =  document.querySelector('.img2')
+    
+    function invert(){
+        img.style.transform='none'
+        img.style.filter='invert(100%)'
+    }
+
+        function opacity50(){
+            img.style.transform='none'
+            img.style.filter = 'opacity(50%)'
+        }
+
+        function rotate180deg(){
+            img.style.filter='none'
+            img.style.transform='rotate(180deg)'
+        }
+
+        function mirror(){
+            img.style.transform='scaleX(-1)'
+        }
+
+        function res1(){
+            img.style.width='100px'
+            img.style.height='100px'
+        }
+
+        function res1(){
+            img.style.width='100px'
+        }
+
+    document.querySelector('.select1').addEventListener('click', () =>{
+        let data=document.querySelector('.select1').value
+        if(data==100) img2.style.width='100px'
+        else if(data==200) img2.style.width='200px'
+        else if(data==300) img2.style.width='300px'
+    })
+    
+    let images = new Array()
+i=0;
+    images[0]='L1UuhNj8T18.jpg'
+    images[1]='5V5MQ_7gZDA.jpg'
+
+   let lmg3 = document.getElementById('.img3')
+   img3.onclick = function(){
+       i++;
+    if (i==2){
+        i=0;
+    }
+    img3.src=images[i]
+    console.log(i)
+       if (i===1){
+
+           img3.style.width='300px'
+           img3.style.height='300px'
+           img3.style.filter='blur(5px)'
+           img3.style.filter='invert'  
+       }
+       else if (i==0){
+        img3.removeAttribute('style');
+       }
+   }
+    </script>
+</body>
+</html>
